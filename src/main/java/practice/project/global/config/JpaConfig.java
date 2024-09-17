@@ -1,2 +1,7 @@
-package practice.project.global.config;public class JpaConfig {
+package practice.project.global.config;
+
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+@EnableJpaAuditing
+public class JpaConfig {
 }

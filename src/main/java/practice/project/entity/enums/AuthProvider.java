@@ -1,2 +1,6 @@
-package practice.project.entity.enums;public class AuthProvider {
+package practice.project.entity.enums;
+
+public enum AuthProvider {
+    KAKAO,
+    GOOGLE
 }
