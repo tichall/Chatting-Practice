@@ -6,18 +6,19 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.project.entity.enums.AuthProvider;
-
-import javax.annotation.processing.Generated;
+import practice.project.entity.enums.UserStatus;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member extends BaseTime {
+public class User extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String email;
+
+    private String password;
 
     private String name;
 
@@ -28,12 +29,17 @@ public class Member extends BaseTime {
     @Enumerated(EnumType.STRING)
     private AuthProvider authProvider;
 
+    @Enumerated(EnumType.STRING)
+    private UserStatus userStatus;
+
     @Builder
-    public Member(String email, String name, String nickname, String profileImageLink, AuthProvider authProvider) {
+    public User(String email, String password, String name, String nickname, String profileImageLink, AuthProvider authProvider, UserStatus userStatus) {
         this.email = email;
+        this.password = password;
         this.name = name;
         this.nickname = nickname;
         this.profileImageLink = profileImageLink;
         this.authProvider = authProvider;
+        this.userStatus = userStatus;
     }
 }
