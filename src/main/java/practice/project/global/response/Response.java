@@ -2,7 +2,9 @@ package practice.project.global.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public class Response<T> {
     private final boolean isSuccess;
@@ -22,6 +24,10 @@ public class Response<T> {
 
     public static <T> Response<T> of(String message, T data) {
         return new Response<T>(true, 200, message, data);
+    }
+
+    public static <T> Response<T> of(Integer statusCode, String message, T data) {
+        return new Response<T>(true, statusCode, message, data);
     }
 
 }

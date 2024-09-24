@@ -14,7 +14,7 @@ import practice.project.entity.enums.UserStatus;
 public class User extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String email;
 
