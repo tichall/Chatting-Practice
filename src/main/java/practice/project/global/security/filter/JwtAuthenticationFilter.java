@@ -41,6 +41,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             LoginRequestDto requestDto = new ObjectMapper()
                     .readValue(request.getInputStream(), LoginRequestDto.class);
 
+            // 여기에서 내부적으로 UserDetailsService의 load
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(
                             requestDto.getEmail(),

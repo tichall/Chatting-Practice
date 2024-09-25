@@ -29,5 +29,4 @@ public class Response<T> {
     public static <T> Response<T> of(Integer statusCode, String message, T data) {
         return new Response<T>(true, statusCode, message, data);
     }
-
 }
