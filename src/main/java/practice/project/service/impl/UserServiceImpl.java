@@ -44,5 +44,4 @@ public class UserServiceImpl implements UserService {
         userRepository.save(newUser);
         return SignupResponseDto.of(newUser);
     }
-
 }

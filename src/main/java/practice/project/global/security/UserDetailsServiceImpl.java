@@ -27,6 +27,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new CustomException(UserErrorCode.WITHDRAWAL_USER);
         }
 
-        return new CustomUser(user);
+        return new UserDetailsImpl(user);
     }
 }

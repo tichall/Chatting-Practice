@@ -15,8 +15,7 @@ import practice.project.entity.User;
 import practice.project.entity.enums.UserStatus;
 import practice.project.global.exception.custom.SecurityErrorCode;
 import practice.project.global.jwt.JwtProvider;
-import practice.project.global.security.CustomUser;
-import practice.project.global.security.UserDetailsServiceImpl;
+import practice.project.global.security.UserDetailsImpl;
 import practice.project.global.util.ResponseUtil;
 
 import java.io.IOException;
@@ -61,7 +60,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain, Authentication authResult) throws IOException {
-        CustomUser userDetails = (CustomUser) authResult.getPrincipal();
+        UserDetailsImpl userDetails = (UserDetailsImpl) authResult.getPrincipal();
         User loginUser = userDetails.getUser();
 
         if (loginUser.getUserStatus() == UserStatus.ACTIVATE) {

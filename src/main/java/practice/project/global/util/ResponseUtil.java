@@ -20,7 +20,7 @@ public class ResponseUtil {
      */
     public static void writeJsonResponse(HttpServletResponse response, HttpStatus status,
                                          String message, String data) throws IOException {
-        Response<String> responseMessage = Response.of(200, message);
+        Response<String> responseMessage = Response.of(status.value(), message, data);
 
         String jsonResponse = objectMapper.writeValueAsString(responseMessage);
         response.setCharacterEncoding("UTF-8");
